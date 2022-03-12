@@ -22,7 +22,38 @@
 
     <div class="game-area">
 
+        <!--Controls which kind of game you're playing +, -, x, /-->
+        <div class="controls-area">
+            <button class="btn btn--big btn--green">
+                <i class="fas fa-plus"></i>
+            </button>
+            <button class="btn btn--big btn--blue">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button class="btn btn--big btn--orange">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="btn btn--big btn--red">
+                <i class="fas fa-divide"></i>
+            </button>
+        </div>
+
+        <!--Creates the random numbers and the operator for the game -->
+        <div class="question-area">
+            <span id="operand1">0</span>
+            <span id="operator">x</span>
+            <span id="operand2">0</span>
+            <span>=</span>
+
+            <!-- Where the game player enters their answer -->
+            <p class="answer-message">Enter Answer:</p>
+            <input id="answer-box" type="number">
+        </div>
+        <button class="btn btn--gray">Submit Answer</button>
+
     </div>
+
+    <!--Where the player can see their score-->
 
     <div class="score-area">
         <p class="scores">Correct Answers <span id="score">0</span></p>
