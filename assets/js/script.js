@@ -25,10 +25,20 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
         })
-        // Call run game function with addition data-type
-        runGame('addition');
-
     }
+
+    // Get answser box, add keydown event listener
+    // Check for an event, then set that event to be a key press of the Enter button
+    // If the enter button is pressed, call the checkAnswer function
+    document.getElementById('answer-box').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            checkAnswer()
+        }
+    })
+    // Call run game function with addition data-type
+    runGame('addition');
+
+
 })
 
 /**
@@ -38,6 +48,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Pass gameType variable that gets the datatype from HTML into the function
 function runGame(gameType) {
+
+    // Every time runGame function is called set value to empty string
+    // This resets the answer box with a blank answer
+    document.getElementById('answer-box').value = '';
+    // Every time the runGame function is called, the curser will be focused in the answer-box
+    document.getElementById('answer-box').focus();
 
     // Creates 2 random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
