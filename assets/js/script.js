@@ -58,6 +58,8 @@ function runGame(gameType) {
     // Creates 2 random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
     let num2 = Math.floor(Math.random() * 25) + 1;
+
+    // Multiplies the two random numbers so that the first number will be divisible by the second number
     let divide1 = num1 * num2;
     let divide2 = num2;
 
