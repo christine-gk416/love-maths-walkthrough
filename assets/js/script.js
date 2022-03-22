@@ -58,6 +58,8 @@ function runGame(gameType) {
     // Creates 2 random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
     let num2 = Math.floor(Math.random() * 25) + 1;
+    let divide1 = num1 * num2;
+    let divide2 = num2;
 
     // Check the gameType
     if (gameType === 'addition') {
@@ -68,6 +70,8 @@ function runGame(gameType) {
 
     } else if (gameType === 'subtract') {
         displaySubtractQuestion(num1, num2);
+    } else if (gameType === 'divide') {
+        displayDivideQuestion(divide1, divide2);
     } else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}! Aborting!`;
@@ -123,6 +127,10 @@ function calculateCorrectAnswer() {
 
         // return the operand1 multipled by operand 2 and choose multiple as the game type
         return [operand1 - operand2, 'subtract']
+    } else if (operator === '/') {
+
+        // return the operand1 multipled by operand 2 and choose multiple as the game type
+        return [operand1 / operand2, 'divide']
     } else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
@@ -182,4 +190,19 @@ function displayMultiplyQuestion(operand1, operand2) {
 
     // Get operator by ID from HTML and assign x as the operator
     document.getElementById('operator').textContent = 'x';
+}
+
+function displayDivideQuestion(operand1, operand2) {
+
+    //Use ternary operator to check if operand1 is > operand2 (larger number for operand1)
+    //if so choose operand1
+    // else choose operand2
+    document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 : operand2;
+
+    //Use ternary operator to check if operand1 is > operand2 (smaller number for operand2)
+    // if so choose the smaller number (operand2)
+    // else operand1 is the smaller number
+    document.getElementById('operand2').textContent = operand1 > operand2 ? operand2 : operand1;
+    // Get operator by ID from HTML and assign - as the operator
+    document.getElementById('operator').textContent = '/';
 }
